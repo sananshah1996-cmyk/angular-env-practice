@@ -21,4 +21,13 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain('Task Management App');
   });
+
+  it('should provide an accessible name for the logo', async () => {
+    const fixture = TestBed.createComponent(App);
+    await fixture.whenStable();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('app-header img')?.getAttribute('alt')).toBe(
+      'Task Management App logo',
+    );
+  });
 });
